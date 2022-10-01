@@ -76,7 +76,7 @@ void CustomComboBox::GetProcessInfo()
 
 ULONG64 CustomComboBox::GetPidFromProcessName(CString sName)
 {
-    //根据进程文件名称遍历ProcessId
+    //通过进程名称获取PID
     for (auto it = m_ProcessNames.begin(); it != m_ProcessNames.end(); it++) {
         if (it->second == sName)
             return it->first;

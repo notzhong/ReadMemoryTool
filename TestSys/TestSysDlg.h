@@ -27,22 +27,52 @@ protected:
 	HICON m_hIcon;
 
 	// 生成的消息映射函数
+	/*
+	*窗口初始化时调用的函数
+	*/
 	virtual BOOL OnInitDialog();
+	/*
+	*MFC初始化绘画窗口调用函数
+	*/
 	afx_msg void OnPaint();
 	afx_msg HCURSOR OnQueryDragIcon();
 	DECLARE_MESSAGE_MAP()
 
 private:
+	/*
+	*获取Process的PID
+	*/
 	ULONG64 m_pid = NULL;
+	/*
+	*下拉框控件
+	*/
 	CustomComboBox SysComboBox;
+	/*
+	* 列表控件
+	*/
 	CustomListCtrl m_ListCtrl;
+	/*
+	* 用于接受打开Process的句柄
+	*/
 	HANDLE m_pHandle = NULL;
 protected:
+	/*
+	* 初始化控件信息
+	*/
 	void InitCtrl();
 
 public:
+	/*
+	*窗口改变大小时调用产生WM_SIZE信号，调用该函数
+	*/
 	afx_msg void OnSize(UINT nType, int cx, int cy);
+	/*
+	遍历按钮所绑定的函数，点击遍历按钮后开始遍历指定地址
+	*/
 	afx_msg void CatMemoryData();
+	/*
+	获取偏移地址
+	*/
 	afx_msg ULONG64 getAddress();
 protected:
 	CString m_pAddr;
