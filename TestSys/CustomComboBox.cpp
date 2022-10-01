@@ -61,6 +61,10 @@ void CustomComboBox::GetProcessInfo()
     //遍历进程名
     do
     {
+<<<<<<< HEAD
+=======
+
+>>>>>>> 85f4d1832fbe654dcd1b1d041e1d4ea68d2b61e1
         //从进程快照中将进程名称传入接收的对象中
         sProcessNames = pe32.szExeFile;
 
@@ -76,7 +80,10 @@ void CustomComboBox::GetProcessInfo()
 
 ULONG64 CustomComboBox::GetPidFromProcessName(CString sName)
 {
+<<<<<<< HEAD
     //根据进程文件名称遍历ProcessId
+=======
+>>>>>>> 85f4d1832fbe654dcd1b1d041e1d4ea68d2b61e1
     for (auto it = m_ProcessNames.begin(); it != m_ProcessNames.end(); it++) {
         if (it->second == sName)
             return it->first;
