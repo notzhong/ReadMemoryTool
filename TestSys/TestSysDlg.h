@@ -75,7 +75,13 @@ public:
 	*/
 	afx_msg ULONG64 getAddress();
 protected:
+	/*
+	记录读取的内存地址
+	*/
 	CString m_pAddr;
+	/*
+	记录偏移大小
+	*/
 	CString m_pOffSet1;
 	CString m_pOffSet2;
 	CString m_pOffSet3;
@@ -83,13 +89,24 @@ protected:
 	CString m_pOffSet5;
 
 public:
+	/*
+	OnClose();
+	OnDestroy();
+	DestroyWindow();
+	都是销毁窗口所调用的。
+	*/
 	afx_msg void OnClose();
 	afx_msg void OnDestroy();
 	virtual BOOL DestroyWindow();
 	virtual BOOL PreTranslateMessage(MSG* pMsg);
 	virtual LRESULT WindowProc(UINT message, WPARAM wParam, LPARAM lParam);
 	afx_msg void OnIdok();
+	/*
+	打印读到内存数据
+	*/
 	void PrintForReadMemory();
-	
+	/*
+	刷新应用程序列表
+	*/
 	afx_msg void OnBnClickedRefresh();
 };
