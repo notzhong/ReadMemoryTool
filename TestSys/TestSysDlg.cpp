@@ -136,13 +136,15 @@ void CTestSysDlg::OnSize(UINT nType, int cx, int cy)
 
 void CTestSysDlg::CatMemoryData()
 {
-    // TODO: 在此添加控件通知处理程序代码
+    // 判断列表是否为空，如果为否，则删除列表内容
     if (m_ListCtrl.GetItemCount())
         m_ListCtrl.DeleteAllItems();
-
-    if (!m_pHandle)
+    static ULONG64 g_nPID = NULL;
+    if (!m_pHandle || m_pid != g_nPID)
     {
+        g_nPID = m_pid;
         m_pHandle = OpenProcess(PROCESS_QUERY_LIMITED_INFORMATION, false, static_cast<DWORD>(m_pid));
+        //进程打开提权
         if (!grant_access(m_pHandle, PROCESS_ALL_ACCESS))
         {
             MessageBox(L"提权失败", L"提示：");

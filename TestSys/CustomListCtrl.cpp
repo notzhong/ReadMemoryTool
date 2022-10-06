@@ -75,8 +75,11 @@ void CustomListCtrl::OnLButtonDblClk(UINT nFlags, CPoint point)
 	
 	if (int nRow = HitTest(point) != -1)
 	{
+		//填入双击位置坐标
 		m_plvhti->pt = point;
+		//该位置位于列表视图项的文本之上。
 		m_plvhti->flags = LVHT_ONITEMLABEL;
+		//获取双击位置的信息
 		SubItemHitTest(m_plvhti);
 		GetSubItemRect(m_plvhti->iItem, m_plvhti->iSubItem, LVIR_LABEL, rc);
         m_Edit.Create(WS_CHILD | WS_VISIBLE | ES_LEFT | WS_BORDER, rc, this, IDC_EDITCHANG);
