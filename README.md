@@ -1,5 +1,5 @@
 # ReadMemoryTool
-该软件只支持Windows 10系统，没有核心科技。。。
+该软件支持Windows 7/10系统，没有核心科技。。。
 
 核心驱动：https://github.com/zerotens/PoC-Kernel-Anticheat-Stripped-Handle-Bypass
 
