@@ -62,6 +62,9 @@ protected:
 	void InitCtrl();
 
 public:
+	//获取客户端大小
+	RECT GetThisClientRect();
+	afx_msg void AutoWindowRect(CRect& rc);
 	/*
 	*窗口改变大小时调用产生WM_SIZE信号，调用该函数
 	*/
@@ -75,6 +78,9 @@ public:
 	*/
 	afx_msg ULONG64 getAddress();
 protected:
+	//记录上下宽距
+	long m_nBottomHeigh;
+	long m_nTopHeigh;
 	/*
 	记录读取的内存地址
 	*/

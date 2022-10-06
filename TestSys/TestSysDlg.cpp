@@ -117,6 +117,23 @@ void CTestSysDlg::InitCtrl()
     
 }
 
+RECT CTestSysDlg::GetThisClientRect()
+{
+    RECT Rect;
+    GetClientRect(&Rect);
+    return Rect;
+}
+
+void CTestSysDlg::AutoWindowRect(CRect& rc)
+{
+    if (BOOLRECT)
+    {
+        m_nBottomHeigh = GetThisClientRect().bottom - rc.bottom;
+        m_nTopHeigh = rc.top - GetThisClientRect().top;
+        BOOLRECT = false;
+    }
+}
+
 
 
 void CTestSysDlg::OnSize(UINT nType, int cx, int cy)
@@ -126,9 +143,10 @@ void CTestSysDlg::OnSize(UINT nType, int cx, int cy)
     CRect listRc;
     if (m_ListCtrl.GetSafeHwnd())
     {
-        m_ListCtrl.GetWindowRect(listRc);
+        listRc = m_ListCtrl.GetCtrlRect();
         ScreenToClient(listRc);
-        m_ListCtrl.SetWindowPos(NULL, listRc.left, listRc.top, cx - listRc.left, cy - listRc.top * 2, SWP_DRAWFRAME);
+        AutoWindowRect(listRc);
+        m_ListCtrl.SetWindowPos(NULL, listRc.left, listRc.top, cx - listRc.left, cy - m_nBottomHeigh - m_nTopHeigh, SWP_DRAWFRAME);
     }
 
 }

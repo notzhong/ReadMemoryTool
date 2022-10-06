@@ -32,6 +32,13 @@ END_MESSAGE_MAP()
 
 // CustomListCtrl 消息处理程序
 
+CRect CustomListCtrl::GetCtrlRect()
+{
+	CRect rc;
+	GetWindowRect(&rc);
+	return rc;
+}
+
 void CustomListCtrl::InitiativeCtrl()
 {
 	InsertColumn(0, L"地址", 0, 100);

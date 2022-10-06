@@ -19,6 +19,8 @@ protected:
 	//获取编辑框的位置和大小
 	LPLVHITTESTINFO m_plvhti;
 public:
+	//获取控件CRect Info
+	CRect GetCtrlRect();
 	/*
 	初始化控件
 	*/
