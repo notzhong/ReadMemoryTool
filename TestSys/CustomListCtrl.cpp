@@ -31,14 +31,6 @@ END_MESSAGE_MAP()
 
 
 // CustomListCtrl 消息处理程序
-void TestDemo(CustomListCtrl* This)
-{
-	This->InsertItem(0, L"111");
-	This->SetItemText(0, 1, L"222");
-	This->SetItemText(0, 2, L"222");
-}
-
-
 
 void CustomListCtrl::InitiativeCtrl()
 {
@@ -49,7 +41,6 @@ void CustomListCtrl::InitiativeCtrl()
 	InsertColumn(4, L"ANSI", 0, 100);
 	InsertColumn(5, L"UNICODE", 0, 100);
 
-	TestDemo(this);
 	SetExtendedStyle(LVS_EX_BORDERSELECT | LVS_EX_FULLROWSELECT | LVS_EX_GRIDLINES);
 
 }
